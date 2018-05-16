@@ -20,3 +20,4 @@ mkdir -p $datadir/docs
 cd $datadir/chr
 parallel "~/Work/pipelines/genomicNLP/module/mean {} ~/Work/dataset/genomicNLP/CATG/6mer/{.}.table.tsv | cut -d' ' -f2- > ../docs/{.}.doc" ::: *
 
+parallel --memfree 30G "python /home/garner1/Work/pipelines/refgenomeLP/vectorization.py {}" ::: $datadir/docs/*.doc
