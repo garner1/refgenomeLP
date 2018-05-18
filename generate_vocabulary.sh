@@ -26,5 +26,5 @@ cd $datadir
 cd ..
 rename -v 's/\/docs\/genome.doc//' $datadir/docs/genome.doc.vocabulary.p
 mkdir -p pickle_vocabularies
-mv *.vocabulary.p pickle_vocabularies
+mv XZ*.vocabulary.p pickle_vocabularies
 

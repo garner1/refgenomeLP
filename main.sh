@@ -13,5 +13,5 @@ cd $datadir
 cd ..
 mkdir -p $datadir/SVD_from_DTM
 rename -v 's/\/docs\/genome.doc//' $datadir/docs/genome.doc.p
-mv *.p SVD_from_DTM
+mv XZ*.p SVD_from_DTM
 
