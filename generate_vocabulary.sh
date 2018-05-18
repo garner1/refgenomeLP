@@ -21,6 +21,10 @@ cd $datadir/chr
 parallel "~/Work/pipelines/genomicNLP/module/mean {} ~/Work/dataset/genomicNLP/\$cutsite/6mer/{.}.table.tsv | cut -d' ' -f2- > ../docs/{.}.doc" ::: *
 cat $datadir/docs/{?,??}.doc > $datadir/docs/genome.doc # this is the document X terms input
 
-python /home/garner1/Work/pipelines/refgenomeLP/build_vocabulary.py $datadir/docs/genome.doc # get vocabulary from dtm 
-mv $datadir/docs/genome.doc.vocabulary.p $datadir/pickle_vocabularies
+python /home/garner1/Work/pipelines/refgenomeLP/build_vocabulary.py $datadir/docs/genome.doc # get vocabulary from dtm
+cd $datadir
+cd ..
+rename -v 's/\/docs\/genome.doc//' $datadir/docs/genome.doc.vocabulary.p
+mkdir -p pickle_vocabularies
+mv *.vocabulary.p pickle_vocabularies
 
